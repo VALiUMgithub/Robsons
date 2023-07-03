@@ -17,6 +17,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "mysql": "^2.18.1",
+    "mysql2": "^3.4.3",
     "node-excel-export": "^1.4.4",
     "nodemon": "^2.0.20"
   }
