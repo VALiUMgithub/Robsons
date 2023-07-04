@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import LoginAuthView from "../components/loginAuthView";
 import ConsultantHomeView from "./home-view";
-import Register from "./Register";
 // import JrHomeView from './JrHomeView';
 import ObsIndexForm from "../components/form1";
 
@@ -15,7 +14,6 @@ const RoutesModules = () => {
 	return (
 		<Router>
 			<Routes>
-				<Route exact path='/register' component={Register} />
 				<Route exact path='/login' component={LoginAuthView} />
 				<Route exact path='/home-view' component={ConsultantHomeView} />
 				{/* <Route exact path="/jr-home-view" component={JrHomeView} /> */}

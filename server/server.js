@@ -26,7 +26,7 @@ const totalGroupList = [
 app.use(bodyParser.json());
 app.use(cors());
 var con = mysql.createConnection({
-	host: "10.10.56.125",
+	host: "localhost",
 	user: "root",
 	password: "",
 	database: "robsonclassification",
@@ -113,7 +113,7 @@ app.post("/submit-form", (req, res) => {
 			return;
 		}
 		let robsonsId = result.insertId;
-		const groupQuery = `INSERT INTO \`groups\` (group_name, created_by, created_on, dataId) VALUES ("${group}", "${data.created_by}", NOW(), "${robsonsId}")`;
+		const groupQuery = `INSERT INTO groups (group_name, created_by, created_on, dataId) VALUES ("${group}", "${data.created_by}", NOW(), "${robsonsId}")`;
 		con.query(groupQuery, (err, result) => {
 			if (err) {
 				console.error("Error while inserting data INTO GROUPS: ", err);
@@ -376,9 +376,11 @@ const calculateCSRateForEachGroup = async (
 			con.query(robsonsQuery, async (error, result, fields) => {
 				if (error) {
 					console.error(error);
-					res.status(500).send({
-						message: "Internal Server Error calculateCSRateForEachGroup",
-					});
+					res
+						.status(500)
+						.send({
+							message: "Internal Server Error calculateCSRateForEachGroup",
+						});
 					return;
 				}
 				let thisGroupCsCount = await result[0]["COUNT"];
@@ -448,7 +450,7 @@ const calculateRelativeCsRate = async (
 app.get("/api/generate-status-init", async (req, res) => {
 	try {
 		let statusData = {};
-		let groupsQuery = `SELECT * FROM \`groups\``;
+		let groupsQuery = `SELECT * FROM groups`;
 		con.query(groupsQuery, async (error, result) => {
 			if (error) {
 				console.error(error);
@@ -494,30 +496,6 @@ app.get("/api/generate-status-init", async (req, res) => {
 			.send({ message: "Internal Server Error generate-status-init" });
 		return;
 	}
-});
-
-// Assuming you are using Express.js
-
-app.post("/register", (req, res) => {
-	console.log("register");
-	const { username, role, password } = req.body;
-
-	// Validate the input here if needed
-
-	// Insert the user data into the database
-	const sql =
-		"INSERT INTO loginauth (username, role, password) VALUES (?, ?, ?)";
-	const values = [username, role, password];
-
-	con.query(sql, values, (err, result) => {
-		if (err) {
-			console.error(err);
-			res.status(500).send("Error registering user");
-		} else {
-			console.log("User registered successfully");
-			res.status(200).send("User registered successfully");
-		}
-	});
 });
 
 app.listen(3050, () => {
