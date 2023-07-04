@@ -54,23 +54,23 @@ function HomeView() {
             </div>
           </div>
         ) : (
-          <div className="bg-white p-6 rounded-lg shadow-md w-full sm:w-96">
-            <h1 className="text-3xl font-bold mb-4">Welcome Doctor</h1>
+          <div className="bg-white p-7 rounded-lg  shadow-xl ring-1 ring-gray-900/5 w-full sm:w-96">
+            <h1 className="hover:cursor-auto   text-3xl font-bold mb-8 justify-center text:items-center ml-4">Welcome Doctor</h1>
             <div className="flex flex-col justify-center">
               <button
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded m-2"
+                className="bg-zinc-300 hover:bg-gray-800 hover:text-white text-gray-500 font-medium hover:font-bold hover:shadow-xl py-2 px-4 rounded m-2 mb-6"
                 onClick={() => goToFormPage()}
               >
                 ENTER DATA
               </button>
               <button
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded m-2"
+                className="bg-zinc-300 hover:bg-gray-800 hover:text-white text-gray-500 font-medium hover:font-bold hover:shadow-xl py-2 px-4 rounded m-2 mb-6"
                 onClick={() => generateSheetPage()}
               >
                 GENERATE EXCEL SHEET REPORT
               </button>
               <button
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded m-2"
+                className="bg-zinc-300 hover:bg-gray-800 hover:text-white text-gray-500 font-medium hover:font-bold hover:shadow-xl py-2 px-4 rounded m-2 mb-6"
                 onClick={() => logout()}
               >
                 LOGOUT
