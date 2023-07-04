@@ -126,8 +126,8 @@ function ObsIndexForm() {
 		<div className='flex flex-col items-center justify-center h-screen'>
 			<ToastContainer />
 			<div className=' bg-white shadow-lg rounded-lg '>
-				<div className=' bg-green-400 rounded-t-lg pr-20 pl-2 py-1'>
-					<h2 className='text-2xl text-left font-bold'>
+				<div className=' bg-gray-400 rounded-t-lg pr-20 pl-2 py-1'>
+					<h2 className='text-2xl relative font-bold text-center'>
 						Robsons Classification
 					</h2>
 					{/* radio buttons */}
@@ -140,13 +140,13 @@ function ObsIndexForm() {
 					</h3>
 				</div>
 
-				<div className='flex form-content bg-white mb-4 flex-col justify-between pr-20 pl-2'>
+				<div className='flex form-content  bg-white mb-4 flex-col justify-between pr-20 pl-2'>
 					{formData[formIndex]?.options.map((option, index) => (
 						<div key={index}>
-							<label key={index} className='inline-flex items-center'>
+							<label key={index} className='inline-flex hover:cursor-pointer hover:text-2xl items-center'>
 								<input
 									type='radio'
-									className='form-radio'
+									className='form-radio hover:cursor-pointer'
 									name='radio'
 									value={option.displayText}
 									checked={
@@ -232,7 +232,7 @@ function ObsIndexForm() {
 					)}
 				</div>
 				{/* navigation buttons */}
-				<div className='mt-6 flex rounded-b-lg bg-green-400'>
+				<div className='mt-6 flex rounded-b-lg bg-gray-400'>
 					{formData[formIndex]?.showPrevious && (
 						<button
 							onClick={goToPreviousForm}
@@ -252,7 +252,7 @@ function ObsIndexForm() {
 					{formData[formIndex]?.isSubmit && (
 						<button
 							onClick={submitForms}
-							className=' text-white hover:text-gray-800 bg-green-700  rounded-br-lg font-bold py-2 px-4  ml-auto'
+							className=' text-white hover:text-gray-800 bg-gray-700  rounded-br-lg font-bold py-2 px-4  ml-auto'
 						>
 							Submit
 						</button>

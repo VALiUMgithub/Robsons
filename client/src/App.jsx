@@ -8,7 +8,6 @@ import GenerateExcelSheet from "../src/components/generate-report-view";
 import GenerateStatus from "../src/components/generate-status-view";
 import { AuthProvider } from "../src/components/auth";
 import HomePage from "../src/components/HomePage";
-import Register from "../src/components/Register";
 import ProtectedRoute from "../src/components/requiredAuth";
 import "react-datetime/css/react-datetime.css";
 import "react-date-range/dist/styles.css"; // main css file for date-range
@@ -18,12 +17,13 @@ function App() {
 
 	return (
 		<AuthProvider>
-			<div className='App font-poppins bg-[#568b6e] p-2'>
-				<div className='container  w-[100vw]'>
+			<div className='relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12'>
+			<img src="../src/assets/beams.jpg" alt="" class="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" width="1308" />
+			<div class="absolute inset-0 bg-[url('https://play.tailwindcss.com/img/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+				<div className='relative'>
 					<Router>
 						<Routes>
 							<Route exact path='/' element={<HomePage />} />
-							<Route exact path='/register' element={<Register />} />
 							<Route exact path='/login' element={<LoginAuthView />} />
 							<Route
 								exact
